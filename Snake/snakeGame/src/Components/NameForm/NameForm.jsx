@@ -3,6 +3,7 @@ import './NameForm.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
+const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
 const NameForm = ({ onSubmitName }) => {
   const [name, setName] = useState('')
@@ -17,7 +18,7 @@ const NameForm = ({ onSubmitName }) => {
     if (name.trim() === '') return
 
     try {
-      const res = await axios.post('http://localhost:5000/api/users', {
+      const res = await axios.post(`${apiUrl}/api/users`, {
         name: name,
       })
 

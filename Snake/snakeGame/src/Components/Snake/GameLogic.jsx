@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import axios from 'axios';
 
+const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
+
 const GameLogic = ({ score, setScore, playerName, refreshLeaderboard, onGameOver }) => {
   const canvasRef = useRef(null);
   const box = 20;
@@ -16,7 +19,7 @@ const GameLogic = ({ score, setScore, playerName, refreshLeaderboard, onGameOver
 
   const updateScore = async () => {
     try {
-      await axios.put('http://localhost:5000/api/users/score', {
+      await axios.put(`${apiUrl}/api/users/score`, {
         name: playerName,
         score: score,
       });

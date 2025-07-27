@@ -3,7 +3,7 @@ import Game from '../../Components/Snake/Snake.jsx'
 
 export const ROUTES = [
     {
-        path: '/home',
+        path: '/',
         element: < NameForm onSubmitName={(name) => console.log("Name submitted:", name)}/>
     },
     {
