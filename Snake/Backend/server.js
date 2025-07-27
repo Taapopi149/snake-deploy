@@ -8,7 +8,10 @@ const userRoutes = require('./routes/userRouter')
 const app = express()
 
 //Middleware
-app.use(cors({origin: process.env.FRONTEND_URL})) //replace later
+app.use(cors({origin: 'https://snake-deploy.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+})) //replace later
 app.use(express.json())
 
 //Database connection
