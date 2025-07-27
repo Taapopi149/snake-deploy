@@ -12,10 +12,7 @@ app.use(cors({origin: process.env.FRONTEND_URL})) //replace later
 app.use(express.json())
 
 //Database connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(process.env.MONGO_URI);
 
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
